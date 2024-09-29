@@ -100,6 +100,14 @@ ul li.item-menu a.icon > i{
     display: block; /* Mostra o submenu quando o item do menu está ativo */
 }
 
+.side-menu .item-menu .sub-menu {
+    background-color: rgb(54,54,54);
+}
+
+.item-sub-menu:hover {
+    background-color: #e10c0c;
+}
+
 .form-container {
     display: flex;
     flex-direction: column;
