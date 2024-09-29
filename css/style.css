@@ -1,0 +1,132 @@
+.title-experimental {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    margin-bottom: 10px;
+}
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
+body{
+    height: 100vh;
+}
+
+nav.side-menu{
+    width: 80px;
+    height: 100%;   
+    background-color: rgb(54,54,54);
+    padding: 40px 0 40px 1%;
+    box-shadow: 3px 0 0 #e10c0c;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    transition: .2s;
+}
+
+nav.side-menu.expand{
+    width: 250px;
+}
+
+.expand-button{
+    width: 100%;
+    padding-left: 0px;
+}
+
+.expand-button > i{
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+ul{
+    height: 100%;
+    list-style-type: none;
+}
+
+ul li.item-menu:hover{
+    background-color: #e10c0c;
+}
+
+ul li.item-menu{
+    transition: .2s;
+}
+
+ul li.active {
+    background-color: #e10c0c;
+}
+
+ul li.item-menu a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 20px 4%;
+    display: flex;
+    margin-bottom: 3px;
+    line-height: 40px;
+}
+
+ul li.item-menu a .txt-link{
+    margin-left: 70px;
+    transition: .7s;
+    width: 100px;
+}
+
+nav.side-menu.expand .txt-link{
+    margin-left: 10px;
+}
+
+ul li.item-menu a.icon > i{
+    font-size: 30px;
+    margin-left: 10px;
+}
+
+.side-menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.side-menu .sub-menu {
+    display: none; /* Esconde o submenu por padrão */
+    padding-left: 50px; /* Indenta o submenu */
+}
+
+.side-menu .item-menu.active .sub-menu {
+    display: block; /* Mostra o submenu quando o item do menu está ativo */
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; /* Alinha o conteúdo à esquerda */
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 450px;
+    margin: 20px 0; /* Remove a margem lateral */
+    margin-left: 100px;
+    transition: margin-left 0.2s;
+}
+
+nav.side-menu.expand ~ .form-container {
+    margin-left: 250px; /* Espaço para o menu expandido */
+}
+
+.container{
+    
+}
+
+.title-experimental {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    margin-bottom: 10px;
+    text-align: center; /* Centraliza o texto */
+}
