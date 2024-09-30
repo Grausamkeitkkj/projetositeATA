@@ -128,7 +128,12 @@ nav.side-menu.expand ~ .form-container {
 }
 
 .container{
-    
+    margin-left: 100px;
+    transition: margin-left 0.2s;
+}
+
+nav.side-menu.expand ~ .container {
+    margin-left: 250px; /* Espaço para o menu expandido */
 }
 
 .title-experimental {
