@@ -108,6 +108,10 @@ ul li.item-menu a.icon > i{
     background-color: #e10c0c;
 }
 
+.sub-menu.active {
+    background-color: red;
+}
+
 .form-container {
     display: flex;
     flex-direction: column;
