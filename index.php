@@ -39,7 +39,7 @@
         <div class="row">
             <div class="col">
                 <h1 class="title-tables">Cadastro Rápido de Aula Experimental</h1>
-                <form>
+                <form method="post" action="form_experimental.php">
                     <div class="form-group">
                         <input type="text" id="name" name="name" placeholder="Nome do aluno" class="form-control form-control-sm">   
                     </div>
@@ -69,9 +69,6 @@
                         <input type="submit" value="Cadastrar" class="btn btn-primary btn-sm">
                     </div>
                 </form>
-            </div>
-            <div class="col">
-                <canvas id="myChart" width="400" height="400">
             </div>
         </div>
     </div>
