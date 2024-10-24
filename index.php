@@ -1,3 +1,11 @@
+<?php
+require_once('class/class_aluno_experimental.php');
+require_once('funcoes/funcoes_uteis.php');
+$alunoExperimental = new alunoExperimental();
+$result = $alunoExperimental->getExperimental();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,13 +49,13 @@
                 <h1 class="title-tables">Cadastro Rápido de Aula Experimental</h1>
                 <form method="post" action="form_experimental.php">
                     <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="Nome do aluno" class="form-control form-control-sm">   
+                        <input type="text" id="nome" name="nome" placeholder="Nome do aluno" class="form-control form-control-sm">   
                     </div>
                     <div class="form-group">
-                        <input type="number" id="age" name="age" placeholder="Idade" class="form-control form-control-sm">   
+                        <input type="number" id="idade" name="idade" placeholder="Idade" class="form-control form-control-sm">   
                     </div>
                     <div class="form-group">
-                        <select id="level" name="level" class="form-control form-control-sm">
+                        <select id="nivel" name="nivel" class="form-control form-control-sm">
                             <option value="">Selecione o nível</option>
                             <option value="1">Tiger</option>
                             <option value="2">Adolescente</option>
@@ -55,15 +63,15 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="date">Data da aula:</label>
-                        <input type="date" id="date" name="date" class="form-control form-control-sm">
+                        <label for="data">Data da aula:</label>
+                        <input type="date" id="data" name="data" class="form-control form-control-sm">
                     </div>
                     <div class="form-group">
-                        <label for="time">Horário da aula:</label>
-                        <input type="time" id="time" name="time" class="form-control form-control-sm">
+                        <label for="hora">Horário da aula:</label>
+                        <input type="time" id="hora" name="hora" class="form-control form-control-sm">
                     </div>
                     <div class="form-group">
-                        <input type="text" id="phone" name="phone" placeholder="Telefone" class="form-control form-control-sm">
+                        <input type="text" id="telefone" name="telefone" placeholder="Telefone" class="form-control form-control-sm">
                     </div>
                     <div class="form-group">
                         <input type="submit" value="Cadastrar" class="btn btn-primary btn-sm">
@@ -87,19 +95,24 @@
                         </tr>
                     </thead>
                     <tbody id="table-body">
-                    </tbody>
-                </table>
-            </div>
-            <div class="col">
-                <h1 class="title-tables">Aulas de hoje</h1>
-                <table class="table table-striped table-sm">
-                    <thead>
-                        <tr>
-                            <th>Horário</th>
-                            <th>Nível</th>
-                        </tr>
-                    </thead>
-                    <tbody id="another-table-body">
+                        <?php
+                        while ($row = $result->fetch_assoc()) {
+                            if($row['nivel'] == 1){
+                                $row['nivel'] = 'Tiger';
+                            } elseif($row['nivel'] == 2){
+                                $row['nivel'] = 'Adolescente';
+                            } else {
+                                $row['nivel'] = 'Adulto';
+                            }
+                            echo "<tr>";
+                            echo "<td>" . $row['nome'] . "</td>";
+                            echo "<td>" . $row['idade'] . "</td>";
+                            echo "<td>" . $row['nivel'] . "</td>";
+                            echo "<td>" . date('d/m/Y', strtotime($row['data'])) . "</td>";
+                            echo "<td>" . formata_telefone($row['telefone']) . "</td>";
+                            echo "</tr>";
+                        }
+                        ?>
                     </tbody>
                 </table>
             </div>
@@ -112,7 +125,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script>
         $(document).ready(function(){
-            $('#phone').mask('(00) 00000-0000');
+            $('#telefone').mask('(00) 00000-0000');
         });
     </script>
 </body>
