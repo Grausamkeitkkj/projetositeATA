@@ -7,23 +7,20 @@ $aluno = new alunoExperimental();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $dados = $_POST;
+    #echo "<pre>";
+    #print_r($dados);
+    #echo "</pre>";
+    #exit;
+
     $dados["telefone"] = limpa_texto($dados["telefone"]);
-    $data = DateTime::createFromFormat('d-m-Y', $dados["data"]);
-    $datainicial = new DateTime();
-    $datainicial->modify('-2 days');
-    $dataFinal = DateTime::createFromFormat('d-m-Y', '01-01-2030');
 
     if(empty($dados["nome"]) || empty($dados["idade"]) || empty($dados["nivel"]) || empty($dados["data"]) || empty($dados["hora"]) || empty($dados["telefone"])) {
         echo "<script>alert('Por favor, preencha todos os campos.'); window.location.href = 'index.php';</script>";
         die();
     }
-    if(strlen($dados["telefone"]) !=11){
-        echo "<script>alert('Por favor, preencha o campo telefone corretamente.'); window.location.href = 'index.php';</script>";
-        die();
-    }
 
-    if ($data > $dataFinal || $data < $datainicial) {
-        echo "<script>alert('Por favor, preencha o campo data com uma data válida.'); window.location.href = 'index.php';</script>";
+    if(strlen($dados["idade"]) > 2){
+        echo "<script>alert('Por favor, preencha o campo idade corretamente.'); window.location.href = 'index.php';</script>";
         die();
     }
 
