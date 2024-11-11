@@ -62,7 +62,7 @@ $result = $alunoExperimental->getExperimental();
         <div class="row">
             <div class="col">
                 <h1 class="title-tables">Aulas Experimentais</h1>
-                <table class="table table-striped table-sm">
+                <table class="table table-striped table-sm custom-table">
                     <thead>
                         <tr>
                             <th>Nome</th>
